@@ -1,0 +1,14 @@
+name: BurmaldaApp
+options:
+  bundleIdPrefix: com.burmalda
+targets:
+  BurmaldaApp:
+    type: application
+    platform: iOS
+    sources: [BurmaldaApp.swift]
+    info:
+      path: Info.plist
+      properties:
+        UILaunchScreen: {}
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
