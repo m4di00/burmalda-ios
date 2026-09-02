@@ -4,13 +4,16 @@ workflows:
     environment:
       xcode: latest
     scripts:
+      - name: Install XcodeGen
+        script: brew install xcodegen
+      - name: Generate Xcode Project
+        script: xcodegen generate
       - name: Build IPA
         script: |
           xcodebuild build \
             -project BurmaldaApp.xcodeproj \
             -scheme BurmaldaApp \
             -destination 'generic/platform=iOS' \
-            -archivePath build/BurmaldaApp.xcarchive \
-            archive
+            CODE_SIGNING_ALLOWED=NO
     artifacts:
-      - build/BurmaldaApp.xcarchive/Products/Applications/*.app
+      - build/Build/Products/Debug-iphoneos/*.app
